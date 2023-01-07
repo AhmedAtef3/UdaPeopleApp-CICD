@@ -148,7 +148,7 @@ jobs:
             npm install
             npm audit --audit-level=critical
             i=0
-            while [ echo $? != 0 || $i -ge 2 ]
+            while [ echo $? != 0 && $i -lt 2 ]
             do
               npm audit fix --force --audit-level=critical
               echo trial
