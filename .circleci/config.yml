@@ -146,17 +146,17 @@ jobs:
           command: |
             cd backend
             npm install
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
+            npm audit fix --force --audit-level=critical
             npm audit --audit-level=critical
-            i=0
-            while [ echo $? != 0 && $i -lt 2 ]
-            do
-              npm audit fix --force --audit-level=critical
-              echo trial
-              echo hereeeee
-              let "i+=1"
-              npm audit --audit-level=critical
-            done
-            echo finished
 
 #   deploy-infrastructure:
 #     docker:
