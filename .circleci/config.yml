@@ -126,7 +126,6 @@ jobs:
             npm install
             npm audit fix --force --audit-level=critical
             npm audit fix --force --audit-level=critical
-            echo $?
             npm audit --audit-level=critical
 
   scan-backend:
@@ -147,16 +146,8 @@ jobs:
             cd backend
             npm install
             npm audit fix --force --audit-level=critical
-            echo hereeee
-            echo $?
-            echo hereeee
-            while [ echo $? != 0 ]
-            do
-              npm audit fix --force --audit-level=critical
-              echo trial
-            done
+            npm audit fix --force --audit-level=critical
             npm audit --audit-level=critical
-            echo finished
 
 #   deploy-infrastructure:
 #     docker:
