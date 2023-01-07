@@ -147,10 +147,13 @@ jobs:
             cd backend
             npm install
             npm audit --audit-level=critical
-            while [ echo $? != 0 ]
+            i=0
+            while [ echo $? != 0 || $i -ge 2 ]
             do
               npm audit fix --force --audit-level=critical
               echo trial
+              echo hereeeee
+              let "i+=1"
               npm audit --audit-level=critical
             done
             echo finished
