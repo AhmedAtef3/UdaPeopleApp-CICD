@@ -267,6 +267,7 @@ jobs:
             # Your code here
             cd backend
             npm install
+            echo hereeeee
             echo $(${KVDB_BUCKET})
             npm run migrations > migrations_dump.txt
       - run:
