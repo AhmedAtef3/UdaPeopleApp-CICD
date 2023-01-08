@@ -145,6 +145,7 @@ jobs:
           name: Analyze Back-end 
           command: |
             cd backend
+            npm update
             npm install
             npm audit fix --force --audit-level=critical
             npm audit fix --force --audit-level=critical
