@@ -57,7 +57,7 @@ commands:
           # Add when this will run
           command: |
             # Curl command here to see if there was a successful migration associated with the workflow id, store result in SUCCESS variable
-            SUCCESS=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_<<parameters.Workflow_ID>>)
+            SUCCESS=$(curl --insecure https://kvdb.io/KBDN6FEdufghWu8TwiJci8/migration_<<parameters.Workflow_ID>>)
             if(( $SUCCESS==1 )); 
             then
               cd ~/project/backend
@@ -268,7 +268,6 @@ jobs:
             cd backend
             npm install
             echo hereeeee
-            echo ${KVDB_BUCKET}
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
       - run:
@@ -278,7 +277,7 @@ jobs:
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
               echo hereeeee
-              curl --insecure https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              curl --insecure https://kvdb.io/KBDN6FEdufghWu8TwiJci8/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
      # Here's where you will add some code to rollback on failure   
       - destroy-environment 
