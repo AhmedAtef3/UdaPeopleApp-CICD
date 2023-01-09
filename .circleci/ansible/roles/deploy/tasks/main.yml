@@ -1,0 +1,25 @@
+- name: create backend directory
+  become: true
+  file: 
+    path: ~/udapeople-backend
+    state: directory
+
+- name: unarchive artifact
+  become: true
+  unarchive:
+    src: artifact.tar.gz
+    dest: ~/udapeople-backend
+
+- name: install dependencies
+  become: true 
+  shell: |
+    cd ~/udapeople-backend
+    npm install
+
+- name: execute app with PM2
+  become: true 
+  shell: |
+    cd ~/udapeople-backend/dist
+    pm2 stop default
+    pm2 start main.js
+    
