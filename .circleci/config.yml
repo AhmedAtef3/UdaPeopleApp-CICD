@@ -33,7 +33,7 @@ commands:
           name: install ansible for node image
           command: |
             sudo apt-get install python3 python3-pip -y
-            pip install ansible
+            python3-pip install ansible
 
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
