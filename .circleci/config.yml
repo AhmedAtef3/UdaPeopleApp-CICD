@@ -280,7 +280,6 @@ jobs:
             echo 'migration will start'
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
-            ls backend/src/migrations
       - run:
           name: Send migration results to kvdb.io
           command: |
