@@ -80,6 +80,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - install_node_ansible
       - restore_cache:
           keys: [frontend-build]
       - run:
