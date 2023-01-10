@@ -337,6 +337,7 @@ jobs:
       # Add ssh keys with fingerprint
       # attach workspace
       - checkout
+      - install_node_awscli
       - install_node_ansible
       - add_ssh_keys:
           fingerprints:
