@@ -18,7 +18,7 @@
     cd /home/ubuntu/udapeople-backend/dist
     pm2 stop default
     pm2 start main.js
-    pm2 logs --json
+    cat /home/ubuntu/.pm2/logs/main-error.log
   register: execute_node
 
 - name: print message
