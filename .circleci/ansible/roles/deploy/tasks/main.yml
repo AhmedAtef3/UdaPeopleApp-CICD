@@ -21,4 +21,9 @@
   shell: |
     cd /home/ubuntu/udapeople-backend/dist
     pm2 start main.js
+  register: execute_node
+
+- name: print message
+  debug:
+    msg: "{{ execute_node.stdout_lines }}"
     
