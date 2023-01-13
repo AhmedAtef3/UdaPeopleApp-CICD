@@ -1,0 +1,2 @@
+URL01: https://github.com/AhmedAtef3/UdaPeopleApp-CICD
+URL02: http://udapeople-f6b9b0b.s3-website-us-west-2.amazonaws.com
