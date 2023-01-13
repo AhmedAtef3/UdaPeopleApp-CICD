@@ -426,8 +426,7 @@ jobs:
           name: Save old WorkflowID to KVdb.io
           command: |
             export OLD_WORKFLOW_ID=$(aws cloudformation list-exports \
-              --query "Exports[?Name=='WorkflowID'].Value" \ 
-              --output text)
+              --query "Exports[?Name=='WorkflowID'].Value" --output text)
             echo OldWorkflowID: "${OLD_WORKFLOW_ID}"
             curl --insecure https://kvdb.io/KBDN6FEdufghWu8TwiJci8/old_workflow_id -d "${OLD_WORKFLOW_ID}"
       - run:
@@ -454,8 +453,7 @@ jobs:
             name: Get old stack workflow id
             command: |
               export STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
-                --stack-status-filter CREATE_COMPLETE \
-                --output text)) 
+                --stack-status-filter CREATE_COMPLETE --output text)) 
               echo Stack names: "${STACKS[@]}" 
               export OLD_WORKFLOW_ID=$(curl --insecure https://kvdb.io/KBDN6FEdufghWu8TwiJci8/old_workflow_id)
               echo OldWorkflowID: "${OLD_WORKFLOW_ID}"
