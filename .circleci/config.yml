@@ -450,17 +450,13 @@ jobs:
         # Checkout code from git
         - checkout
         - run:
-            name: Get old stack workflow id
+            name: Remove old stacks and files
             command: |
               export STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
                 --stack-status-filter CREATE_COMPLETE --output text)) 
               echo Stack names: "${STACKS[@]}" 
               export OLD_WORKFLOW_ID=$(curl --insecure https://kvdb.io/KBDN6FEdufghWu8TwiJci8/old_workflow_id)
               echo OldWorkflowID: "${OLD_WORKFLOW_ID}"
-        - run:
-            name: Remove old stacks and files
-            command: |
-              echo old: "${OLD_WORKFLOW_ID}"
               if [[ "${STACKS[@]}" =~ "${OLD_WORKFLOW_ID}" ]]
               then
                 # your code here
