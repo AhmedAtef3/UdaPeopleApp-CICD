@@ -460,7 +460,7 @@ jobs:
         - run:
             name: Remove old stacks and files
             command: |
-              echo "${OLD_WORKFLOW_ID}"
+              echo old: "${OLD_WORKFLOW_ID}"
               if [[ "${STACKS[@]}" =~ "${OLD_WORKFLOW_ID}" ]]
               then
                 # your code here
