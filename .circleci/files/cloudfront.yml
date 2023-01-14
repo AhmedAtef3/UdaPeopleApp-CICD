@@ -6,10 +6,6 @@ Parameters:
     Description: Unique identifier.
     Type: String
     Default: b1nzgo1sjg
-  DefaultRegion:
-    Description: s3 bucket url region
-    Type: String
-    Default: us-west-2
 
 
 Resources:
@@ -26,8 +22,7 @@ Resources:
       DistributionConfig:
         Origins:
           #if cloudfront still redirects to s3 try to add domain name with its url which includes -website and region
-          # - DomainName: !Sub "udapeople-${WorkflowID}.s3.amazonaws.com"
-          - DomainName: !Sub "udapeople-${WorkflowID}.s3-website-${DefaultRegion}.amazonaws.com"
+          - DomainName: !Sub "udapeople-${WorkflowID}.s3.amazonaws.com"
             Id: webpage
             S3OriginConfig:
               OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CloudFrontOriginAccessIdentity}"
