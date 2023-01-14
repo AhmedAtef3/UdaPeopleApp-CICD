@@ -21,6 +21,7 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
+          #if cloudfront still redirects to s3 try to add domain name with its url which includes -website and region
           - DomainName: !Sub "udapeople-${WorkflowID}.s3.amazonaws.com"
             Id: webpage
             S3OriginConfig:
