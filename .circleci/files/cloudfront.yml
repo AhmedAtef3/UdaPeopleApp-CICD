@@ -6,6 +6,10 @@ Parameters:
     Description: Unique identifier.
     Type: String
     Default: b1nzgo1sjg
+  AWS_DEFAULT_REGION:
+    Description: s3 bucket url region
+    Type: String
+    Default: us-west-2
 
 
 Resources:
